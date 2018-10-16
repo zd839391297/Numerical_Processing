@@ -3,7 +3,7 @@ import numpy as np
 from sympy import *
 
 
-point = np.loadtxt("point_file.txt")
+point = np.loadtxt("point_laln.txt")
 x = Symbol("x")
 # x = 0.872
 # print(point)
@@ -13,7 +13,6 @@ if point_shape[1] > 2 or point_shape[1] < 2:
 else:
     point_num = point_shape[0]
     # print(point_num)
-
     def LI(x, j):
         li = 1
         i = 1
