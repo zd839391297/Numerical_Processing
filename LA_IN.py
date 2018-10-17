@@ -13,6 +13,7 @@ if point_shape[1] > 2 or point_shape[1] < 2:
 else:
     point_num = point_shape[0]
     # print(point_num)
+
     def LI(x, j):
         li = 1
         i = 1
