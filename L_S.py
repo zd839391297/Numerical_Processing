@@ -32,10 +32,8 @@ else:
     x_mean = np.mean(point[:, 0])
     y_mean = np.mean(point[:, 1])
     a = y_mean-b*x_mean
-    print("y=", b, "x+", a)
-    a_s = math.e**a
-    print(a_s)
+    print("The linear fitting result is: ","y=", b, "x+", a)
     r = (xy_sum-x_sum*y_sum/point_num) / \
         np.sqrt((xx_sum-(x_sum**2)/point_num)*(yy_sum-(y_sum**2)/point_num))
-    print(r)
+    print("The linear correlation coeffieint(r) is:",r)
     
