@@ -4,13 +4,13 @@ import LS
 import LI
 import ROOT
 
-
-data_txt = "point_li.txt"
-LI.li(data_txt)
-data_txt = "point_ls.txt"
-LS.ls(data_txt)
-data_txt = 'point_ni.txt'
-NI.ni(data_txt)
+def run(x):
+    data_txt = "point_li.txt"
+    LI.li(data_txt)
+    data_txt = "point_ls.txt"
+    LS.ls(data_txt)
+    data_txt = 'point_ni.txt'
+    NI.ni(data_txt)
 from numpy import poly1d
 p = poly1d([1, -1, 0.2149, -0.01438])
 
