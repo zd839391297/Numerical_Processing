@@ -43,11 +43,12 @@ rtw2 = 2412.09  #在tw2温度下水的汽化热，aspen算的
 #rtw2=input()
 
 x = sp.symbols("x")
-a = sp.solve([(t2 - x) / (t2 - tw2) - (rtw2 * (x2 - x_) - cs * (t2 - tw2) *
-                                       ((x2 - x_) /
-                                        (xc - x_))**(rtw2 * (xc - x_) /
-                                                     (cs * (t2 - tw2)))) /
-              (rtw2 * (xc - x_) - cs * (t2 - tw2))], [x])
+temp1 = (rtw2 * (x2 - x_) - cs * (t2 - tw2) *
+         ((x2 - x_) / (xc - x_))**(rtw2 * (xc - x_) /
+                                   (cs *
+                                    (t2 - tw2)))) / (rtw2 * (xc - x_) - cs *
+                                                     (t2 - tw2))
+a = sp.solve([(t2 - x) / (t2 - tw2) - temp1], [x])
 theta2 = a[x]  #物料离开干燥器的温度
 print("物料离开干燥器的温度θ2：", theta2)
 
@@ -78,9 +79,12 @@ print("预热器的热负荷Qp：", qp)
 ts = 110  #加热蒸汽温度
 gamma = 2140  #加热蒸汽冷凝潜热
 yita2 = 0.15  #预热器热损失
-wh=qp*3600/(gamma*(1-yita2))#蒸汽消耗量
+wh = qp * 3600 / (gamma * (1 - yita2))  #蒸汽消耗量
 print("蒸汽消耗量Wh：", wh)
 
-yitaz=q1/qp#干燥系统热效率
+yitaz = q1 / qp  #干燥系统热效率
 print("干燥系统热效率η：", yitaz)
 
+rou = 0.972166281370025  #80度空气的密度
+miu = 0.0000209013074229616  #80度空气的黏度
+lamda = 0.0295522535656798  #80度空气的导热系数
